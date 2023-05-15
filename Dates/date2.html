@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>date2.2</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question Dates 2.2</h3>
+        <p>Find out the Current Year is a Leap Year. When is the next leap year.
+        </p>
+    </div>
+
+    <input type="text"  id="dateYear" required placeholder="Enter a valid Year"><br>
+    <button onclick="getLeapYear()">Check</button>
+    <p id="output"></p>
+
+    <script>
+        function getLeapYear(){
+            const x = Number(document.getElementById('dateYear').value)
+
+            if(typeof x !== "number"){
+                return output.innerHTML = 'Enter a valid year'
+            } else{
+                if(x % 4 !== 0){
+                for( 
+                    let i = x; i >0; i++
+                    ){
+                        
+                        if(i % 4 === 0){
+                            output.innerHTML = `Year <b>${x}</b> is <b>not a leap year</b> 
+                            <br> Next Leap Year is <b>${i}</b>`                
+                        break
+                    } 
+                }
+            } else{
+                output.innerHTML = `Year <b>${x}</b> is a <b>leap year</b>`                
+            }
+            }
+        }
+
+    </script>
+</body>
+</html>

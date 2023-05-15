@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>numbers3.3</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question Numbers 3.3</h3>
+        <p>Show the Prime numbers between Two given numbers.
+
+        </p>
+    </div>
+
+    
+    <h4>num 1</h4>
+    <input type="text" id="text1">
+    <h4>num 2</h4>
+    <input type="text" id="text2">
+    <button onclick="calculatePrime()">Submit</button>
+    <p id="output"></p>
+
+    <script>
+        function calculatePrime() {
+            const output = document.getElementById("output")
+            const x = Number.parseInt(document.getElementById("text1").value)
+            const y = Number.parseInt(document.getElementById("text2").value)
+
+            for (let i = x ; i < y ; i++){
+               let isPrime = true;
+               for (let j= 2; j < i; j++){
+                if(i%j === 0 ) isPrime = false;
+               }
+               if(isPrime) output.innerHTML += `<b>${i}</b> is prime number <br>`
+            }
+
+        }
+    </script>
+</body>
+</html>

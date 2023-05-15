@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String1.4</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question String 1.4</h3>
+        <p>Allow a user to enter a string. Then add a number & display the ASCII alphabet for the totaled number.
+        </p>
+    </div>
+    
+    <input id="q3Strings">
+    <p id="q4StringsOutput"></p>
+    <p id="q3StringsOutput"></p>
+
+    <button type="button" onclick="myFunctionString2()">Submit</button>
+
+    <script>
+function myFunctionString2(){
+    let x = document.getElementById("q3Strings").value;    
+    
+    let sum = 0;
+    for (let i =0; i<x.length;i++){
+        let character = x.charAt(i)
+        let characterCode = character.charCodeAt(character);
+        document.write( `${character} : <b>${characterCode}</b> <br>  `)
+        sum =sum+ characterCode;
+    }
+    document.write(`Total character code value is <b>${sum}</b> <br/> 
+    The ASCII value will be <b>${sum>127? 'ASCII code cannot be printed above 127' : String.fromCharCode(sum)}</b>`)
+
+}
+ </script>   
+</body>
+</html>

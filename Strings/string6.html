@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String1.7</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question String 1.7</h3>
+        <p>Encrypt a string from the Alphabet With numbers in 9,8,7,6,5,4,3,2,1,0,9,8,7..
+
+        </p>
+    </div>
+    <input id="q5Strings">
+    <button type="button" onclick="myFunctionString5()">Submit</button>
+
+    <script>
+        function myFunctionString5(){
+            let x = document.getElementById("q5Strings").value;    
+            
+            const arrNum = [9,8,7,6,5,4,3,2,1,0];
+            const arrChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            let count = -1;
+            let dataExpected = [];
+            let objectData = {};
+            let safe="";
+            for (let i in arrChar){
+                count++;
+                if(count>=10){
+                    count= 0;
+                }
+                objectData[arrChar[i]] = arrNum[count];
+            }
+
+            for (let j = 0; j<x.length;j++){
+                let question = x.charAt(j).toUpperCase().toString();
+
+                document.write(`${question} : <b>${
+                objectData[question]}</b> <br>`)    
+            }
+        }
+    </script>
+    
+</body>
+</html>

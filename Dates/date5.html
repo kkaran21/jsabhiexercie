@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=b, initial-scale=1.0">
+    <title>date2.5</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question Dates 2.5</h3>
+        <p>
+            Given a date show the last Working Date (If Monday then show Friday).
+        </p>
+      </div>
+    
+
+    <input type="date" id="date1"/>
+    <button onclick="getLastWorkinDay()">Check</button>
+    <p id="output"></p>
+    <script>
+           let lastWorkingDay = " ";
+           function getLastWorkinDay() {
+            const date1 = new Date(document.getElementById("date1").value)
+            const currentDay = date1.getDay() === 0 ? "Sunday" : date1.getDay() === 1 ? "Monday" : date1.getDay() === 2 ? "Tuesday" : date1.getDay() === 3 ? "Wednesday" : date1.getDay() === 4 ? "Thursday" : date1.getDay() === 5 ? "Friday" : "Saturday"
+            console.log(currentDay);
+            const weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+            if (currentDay.toString() == "Saturday" || currentDay.toString() == "Sunday") {
+                lastWorkingDay = "Friday"
+            }
+            else {
+                for (let i = 0; i < weekDays.length; i++) {
+                    if (currentDay.toString() == weekDays[i]) {
+                        if (i == 0) {
+                            lastWorkingDay = "Friday"
+                        }
+                        else {
+                            lastWorkingDay = weekDays[i-1].toString()
+                           // console.log(lastWorkingDay)
+                        }
+                    }
+                }
+            }
+            console.log("lastWorkingDay",lastWorkingDay)
+            console.log("End of getLasWorkingDay")
+            checkWeekDays();
+        }
+        const dates = [];
+        function checkWeekDays(){
+            console.log("Start of CheckweekDay")
+            const date1 = new Date(document.getElementById("date1").value);
+            const ouput = document.getElementById("output").value;
+            const weekdays = date1.getDay() === 0 ? "Sunday" : date1.getDay() === 1 ? "Monday" : date1.getDay() === 2 ? "Tuesday" : date1.getDay() === 3 ? "Wednesday" : date1.getDay() === 4 ? "Thursday" : date1.getDay() === 5 ? "Friday" : "Saturday"
+            getDatesBetween(date1)
+            for(let i = 0 ; i < dates.length ; i++){
+                console.log(dates[i])
+                console.log(lastWorkingDay)
+                let day=dates[i].day===0 ? "Sunday": dates[i].day===1? "Monday": dates[i].day===2? "Tuesday": dates[i].day===3? "Wednesday": dates[i].day===4 ? "Thursday": dates[i].day===5 ? "Friday": dates[i].day===6 ? "Saturday":""
+                if(day.toString() == lastWorkingDay.toString()){
+                    const d = new Date(dates[i].year,dates[i].month,dates[i].date);
+                    lastWeekDay  = d.getDay() === 0 ? "Sunday" : d.getDay() === 1 ? "Monday" : d.getDay() === 2 ? "Tuesday" : d.getDay() === 3 ? "Wednesday" : d.getDay() === 4 ? "Thursday" : d.getDay() === 5 ? "Friday" : "Saturday"
+                    const dateFeed = `${d.getDate()} / ${d.getMonth()} /  ${d.getFullYear()}`
+                    output.innerHTML = `The Week day of this date is <b>${weekdays}</b> <br> The last working day is <b>${lastWeekDay}</b> and date is <b>${dateFeed}</b>`
+                }
+                else{
+                    console.log("I'm Sorry")
+                }
+            }
+            //console.log(dates)
+        }
+        function getDatesBetween(startDate) {
+            const currentDate = new Date(startDate.getTime());
+            let count =4;
+            while (count !=0) {
+                let dateObj = {
+                    day: currentDate.getDay(),
+                    year: currentDate.getFullYear(),
+                    date: currentDate.getDate(),
+                    month :currentDate.getMonth(),
+                };
+                dates.push(dateObj);
+                dateObj={};
+                currentDate.setDate(currentDate.getDate() - 1);
+                count--;
+            }
+            return dates;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array1.1</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question Arrays 4.1</h3>
+        <p>Insert a Array Value & show as a String.
+
+        </p>
+    </div>
+    
+    <script>
+        function addPersonList(){
+            let question = parseInt(prompt("How names do you want enter"));
+            let arr = [];
+            
+            while(question!=0){
+                question--;
+                let names = prompt("Enter user name:");
+                arr.push(names.toString());
+            }
+
+            document.write(`<b>${arr.toString().replaceAll(","," ")}</b>`)
+
+
+        }
+        
+        addPersonList()
+    </script>
+</body>
+</html>

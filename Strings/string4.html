@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String1.2</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question String 1.2</h3>
+        <p>Convert a string into ASCII,Display that & show the total
+        </p>
+    </div>
+    <input id="q3Strings">
+    <p id="q4StringsOutput"></p>
+    <p id="q3StringsOutput"></p>
+
+    <button type="button" onclick="myFunctionString2()">Submit</button>
+
+    <script>
+function myFunctionString2(){
+    let x = document.getElementById("q3Strings").value;    
+    
+    let sum = 0;
+    for (let i =0; i<x.length;i++){
+        let character = x.charAt(i)
+        let characterCode = character.charCodeAt(character);
+        document.write( `${character} : <b>${characterCode}</b> <br>  `)
+        sum =sum+ characterCode;
+    }
+    document.write(`Total character code value is ${sum}`)
+
+}
+</script>
+</body>
+</html>

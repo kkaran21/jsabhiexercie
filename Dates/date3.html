@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>date2.3</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question Dates 2.3</h3>
+        <p>Given two dates find the User given Days i.e. Mondays,Tuesday...
+
+        </p>
+    </div>
+
+    <h3>Date 1</h3>
+    <input type="date" id="date1">
+    <h3>Date 2</h3>
+    <input type="date" id="date2">
+    <h3>Select WeekDays</h3>
+    <select id="weekDaysData" required>
+        <option value="1">Monday</option>
+        <option value="2">Tuesday</option>
+        <option value="3">Wednesday</option>
+        <option value="4">Thursday</option>
+        <option value="5">Friday</option>
+        <option value="6">Saturday</option>
+        <option value="0">Sunday</option>
+    </select>
+<br>
+<br>
+    <button onclick="checkDates()">Check</button>
+
+    <p id="output"></p>
+    
+    <script>
+        const dates = [];
+
+        function checkDates(){
+            const week = Number(document.getElementById("weekDaysData").value)
+            console.log(week)
+            const date1 = new Date(document.getElementById("date1").value)
+            const date2 = new Date(document.getElementById("date2").value)
+            const output = document.getElementById('output')
+
+            getDatesBetween(date1,date2)
+
+            const filterDays = dates.filter(arr => arr.day === week)  
+            console.log(filterDays)  
+
+            filterDays.map(arr=>{
+                let dataFeed = new Date(arr.year, arr.month, arr.date)
+                const weekdays = dataFeed.getDay() === 0 ? "Sunday" : dataFeed.getDay() === 1 ? "Monday" : 
+                dataFeed.getDay() === 2 ? "Tuesday" : dataFeed.getDay() === 3 ? "Wednesday" : 
+                dataFeed.getDay() === 4 ? "Thursday" : dataFeed.getDay() === 5 ? "Friday" : "Saturday"
+                output.innerHTML += `${weekdays} : <b>${dataFeed.getDate()} / ${dataFeed.getMonth()} / ${dataFeed.getFullYear()}</b> <br>`
+            })
+        }
+
+        function getDatesBetween(startDate, endDate) {
+            const currentDate = new Date(startDate.getTime());
+            while (currentDate <= endDate) {
+                let dateObj = {
+                    day: currentDate.getDay(),
+                    year: currentDate.getFullYear(),
+                    date: currentDate.getDate(),
+                    month :currentDate.getMonth(),
+
+                };
+                dates.push(dateObj);
+                dateObj={};
+                currentDate.setDate(currentDate.getDate() + 1);
+            }
+            return dates;
+        }
+
+    </script>
+</body>
+</html>

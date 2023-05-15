@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        String1.1
+    </title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question String 1.1</h3>
+        <p>Give a String and print Reverse/Odd/Even.</p>
+    </div>
+  
+    <input id="q1_1Strings">
+    <button type="button" onclick="myFunctionString1_1()">Submit</button>
+    <p id="q1_1StringsOutput"></p>
+
+    <script>
+        function myFunctionString1_1(){
+            let y = document.getElementById("q1_1StringsOutput")
+                let x = document.getElementById("q1_1Strings").value;
+                let new_str = "";
+                let even_str = "";
+                let odd_str = "";
+                
+                for (let i = x.length; i > -1; i--){
+                    new_str+=x.charAt(i);
+                }
+
+                for(let j = 0 ; j<x.length; j++){
+                    if(j%2!= 0 ){
+                        even_str+=x.charAt(j);
+                    }else odd_str+=x.charAt(j)
+                }        
+                y.innerHTML=`reverse of string <b>${x}</b> is <b>${new_str}</b> <br/> even string is <b>${even_str}</b> <br/> odd string is <b>${odd_str}</b>` 
+        }
+    </script>
+</body>
+</html>

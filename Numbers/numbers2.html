@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>numbers3.2</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question Numbers 3.2</h3>
+        <p>Given two Dates & the Rate of  Intrest Show the Intrest amount(amt = 100) [PNR]. 
+        </p>
+    </div>
+
+
+        <h3>Period 1</h1>
+        <input type="date" name="date1" id="date1Value">
+        <h3>Period 2</h1>
+            <input type="date" name="date2" id="date2Value">
+            <h3>ROI</h1>
+                <input type="number" id="roiNumber">
+
+            <button type="button" onclick="pnrCalculate()">Calculate</button>
+
+    <p id="output"></p>
+            
+
+            <script>
+            function pnrCalculate(){
+        const output = document.getElementById("output")
+
+                const x1 = new Date(document.getElementById("date1Value").value);
+                const x2 = new Date(document.getElementById("date2Value").value);
+                const roi = document.getElementById("roiNumber").value
+                let time = (x2.getTime() - x1.getTime())
+                let days = time / (1000*3600*24);
+                let years = (days/365).toFixed(2)
+
+                let si = (100 * years * Number.parseInt(roi)) /100;
+                output.innerHTML = `The simple interest is <b>${si}</b>`
+            }
+
+            </script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+div{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+div h3{
+    color:black;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+div p{
+    color:black;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>numbers3.5</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    
+    <div>
+        <h3>Question Numbers 3.5</h3>
+        <p>Difference between the Square & the Square root of multiple numbers separated by commas. Show the number level difference & String level difference.
+        </p>
+    </div>
+    <p id="output"></p>
+    <p id="output1"></p>
+
+
+    <script>
+        function squareAndSquareRoot(){
+            const output = document.getElementById("output")
+            const output1 = document.getElementById("output1")
+            const inpt = prompt("Enter a number: ")
+            const data = inpt.split(",")
+            let sum = 0;
+
+            for(let i = 0 ; i< data.length;i++){
+                const squareConv = Number(Number(data[i]) ** 2);
+                const sqareRootConv = Number(Math.sqrt(Number(data[i])));    
+                const diffBetween = squareConv - sqareRootConv;
+                sum += Number(data[i]);
+
+                output.innerHTML += `
+                Number <b>${data[i]}</b> :  square is <b>${squareConv.toFixed(2)}</b> , square root is <b>${sqareRootConv.toFixed(2)}</b> 
+                and Difference is <b>${diffBetween.toFixed(2)}</b> <br>
+                `
+
+            }
+
+            output1.innerHTML = `
+                Total Number <b>${sum}</b> :  square is <b>${sum*sum.toFixed(2)}</b> , square root is <b>${Math.sqrt(sum).toFixed(2)}</b> 
+                and Difference is <b>${(sum*sum - Math.sqrt(sum)).toFixed(2)}</b> <br>
+                `
+        }
+
+        squareAndSquareRoot()
+    </script>
+</body>
+</html>

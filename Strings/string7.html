@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string1.8</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question String 1.8</h3>
+        <p>Use REGEXP() - Take a String between “[]”.
+        </p>
+    </div>
+
+
+    <textarea id="textareaZone" cols="80" rows="15" required></textarea>
+    <br>
+    <br>
+    <p><b>
+
+        Search a value in the enetered paragraph
+    </b>
+    </p>
+    <input id="q5Strings" required>
+    <button type="button" onclick="myFunctionString5()">Search</button>
+
+    <p id="output"></p>
+
+    <script>
+        function myFunctionString5(){
+            const input = document.getElementById("q5Strings").value;
+            const paragraph = document.getElementById("textareaZone").value;
+            const ouput = document.getElementById("output")
+
+            const pattern1 = new RegExp("\\b" + input + "\\b", "gi");;
+            let found = paragraph.match(pattern1);
+            output.innerHTML = `The word <b>"${input}"</b> matches in the paragraph counts are <b>${found?.length}</b>`
+        }
+    </script>
+    
+</body>
+</html>

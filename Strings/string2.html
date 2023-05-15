@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String1.3</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question String 1.3</h3>
+        <p>Take a string and convert into Proper case.
+
+        </p>
+    </div>
+   
+    <input id="q3Strings">
+    <button type="button" onclick="myFunctionString3()">Submit</button>
+    <p id="q3StringsOutput"></p>
+
+    <script>
+
+
+function myFunctionString3(){
+    let x = document.getElementById("q3Strings").value.toLowerCase();    
+    let y = document.getElementById("q3StringsOutput");
+
+   let arr = x.split(" ");
+   let output= " ";
+   for (let i = 0; i<arr.length; i++){
+    let n = arr[i].replace(arr[i].charAt(0),arr[i].charAt(0).toUpperCase());
+    output= output+ " "+ n;
+   }
+
+   y.innerHTML = `output is <b>${output}</b>`
+}
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>date2.1</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question Dates 2.1</h3>
+        <p>Ask a user to enter how many Months,Year& Days the user wants to add to a Date.
+        </p>
+    </div>
+
+    <h5>Enter Days</h3>
+    <input type="text" id="daysDate" placeholder="Enter Days" minlength="1" maxlength="31">
+    <h5>Enter Month</h3>
+    <input type="text" id="monthsDate" placeholder="Enter Months" min="1" max="12">
+    <h5>Enter Years</h3>
+    <input type="text" id="yearsDate" placeholder="Enter Years">
+
+    <button onclick="dateChecking()">Calculate</button>
+
+    <p id="output"></p>
+
+    <script>
+        function dateChecking(){
+            const x = Number(document.getElementById("daysDate").value);
+            const y = Number(document.getElementById("monthsDate").value);
+            const z = Number(document.getElementById("yearsDate").value);
+            const output = document.getElementById("output")
+
+            const defaultDate = new Date();
+            const defaultDay = defaultDate.getDate();
+            const defaultMonth = defaultDate.getMonth() + 1;
+            const defaultYear = defaultDate.getFullYear();
+
+            const outputDate = new Date(z ? z + defaultYear : defaultYear,y ? y + defaultMonth + 1 :  defaultMonth ,x ? x + defaultDay : defaultDay)
+            console.log(outputDate)
+
+            output.innerHTML = `
+            The Todays date is <b>${defaultDate}/${defaultDay}/${defaultYear}</b> <br>
+            The Date formate is <b>${outputDate.getDate()} / ${outputDate.getMonth()} / ${outputDate.getFullYear()}
+             </b> <br> The Date time formate is <b>${outputDate}</b>
+            ` 
+        }
+
+    </script>
+</body>
+</html>

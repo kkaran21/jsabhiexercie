@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>numbers3.4</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question Numbers 3.4</h3>
+        <p>Convert a number into Appropriate currency. i.e. Lacs,Million,Crores,Billion.
+        </p>
+    </div>
+   <script>
+    function currencyConversion(){
+        const data = prompt("Enter a currency: ");
+
+        const inpt = data.substring(0,data.indexOf(".")) ? data.substring(0,data.indexOf(".")) : data 
+       
+
+        if(inpt?.length == 4){
+            document.write(`${inpt?.slice(0,1)} Thousands ${inpt?.slice(1,2)} hundred ${inpt?.slice(2)}`)
+        }
+        else if(inpt?.length == 5){
+            document.write(`${inpt?.slice(0,2)} Thousands ${inpt?.slice(2,3)} hundred ${inpt?.slice(3)}`)
+        }
+        else if(inpt?.length == 6){
+            document.write(`${inpt?.slice(0,1)} Lakhs ${inpt?.slice(1,3)} Thousands ${inpt?.slice(3,4)} 
+            hundreds ${inpt?.slice(4)}`)
+        }
+        else if(inpt?.length == 7){
+            document.write(`${inpt?.slice(0,1)} Million ${inpt?.slice(1,2)} Lakhs ${inpt?.slice(2,4)} 
+            Thousands ${inpt?.slice(4,5)} hundred and ${inpt?.slice(5)}`)
+        }
+        else if(inpt?.length == 8  ){
+            document.write(`${inpt?.slice(0,1)} Crore ${inpt?.slice(1,2)} Million ${inpt?.slice(2,3)}
+             Lakhs ${inpt?.slice(3,5)} 
+            Thousand ${inpt?.slice(5,6)} hundred and ${inpt?.slice(6)}`)
+        } 
+        else if(inpt?.length >= 9){
+            document.write(` ${inpt?.slice(0,-8)} Billion ${inpt?.slice(-8,-7)} Crore ${inpt?.slice(-7,-6)} Million 
+            ${inpt?.slice(-6,-5)}
+             Lakhs ${inpt?.slice(-5,-3)} Thousands ${inpt?.slice(-3,-2)} hundred and ${inpt?.slice(-2)}`)
+        } 
+        else{
+            document.write(`${inpt}`)
+
+        }
+    }
+
+    currencyConversion()
+   </script> 
+</body>
+</html>

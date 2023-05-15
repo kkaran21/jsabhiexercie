@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dates2.4</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div>
+    <h3>Question Dates 2.4</h3>
+    <p>
+      Given two dates i.e. Between years (Annual,Six Months,Quarterly).
+    </p>
+  </div>
+
+  <h5>Date 1</h5>
+    <input type="date" id="date1">
+    <h5>Date 2</h5>
+    <input type="date" id="date2">
+    <h5>Select periods</h5>
+    <select id="weekDaysData" required>
+        <option value="1">Yearly</option>
+        <option value="2">Six months</option>
+        <option value="3">Quaterly</option>
+    </select>
+<br>
+
+    <button onclick="
+getDates()
+    "> Submit</button>
+
+    <p id="output"></p>
+
+    <script>
+        function getDates() {
+  const startDate = new Date(document.getElementById("date1").value);
+  const endDate = new Date(document.getElementById("date2").value);
+  const frequency =Number(document.getElementById("weekDaysData").value)
+  const output = document.getElementById("output")
+  const dates = [];
+  // Calculate the number of milliseconds in the chosen frequency
+  let interval = 0;
+  if (frequency === 1) {
+    interval = 365 * 24 * 60 * 60 * 1000;
+  } else if (frequency === 2) {
+    interval = 6 * 30 * 24 * 60 * 60 * 1000;
+  } else if (frequency === 3) {
+    interval = 3 * 30 * 24 * 60 * 60 * 1000;
+  } else {
+    alert("Invalid frequency.");
+    return;
+  }
+  // Loop through each interval between start and end dates
+  let currentDate = new Date(startDate);
+  console.log(currentDate)
+  console.log(interval)
+  while (currentDate < endDate) {
+    dates.push(new Date(currentDate));
+    currentDate.setTime(currentDate.getTime() + interval);
+  }
+  dates.push(new Date(endDate));
+  // Display the resulting dates
+
+  dates.map(date => 
+    output.innerHTML += `<b>${frequency === 1 ? "Annual" : frequency === 2 ? "Six Months" : "Quaterly"}</b> <br> 
+      <b>${date.toISOString().substring(0,10)}</b> <br>
+    `)
+}
+    </script>
+</body>
+</html>

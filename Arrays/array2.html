@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array1.2</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question Arrays 4.2</h3>
+        <p>Dim a two Dimensional Array 
+
+        </p>
+    </div>
+    <script>
+        function tableGenerate(){
+            let row = parseInt(prompt("Enter number of rows"));
+            let column = parseInt(prompt("Enter number of column"));
+
+            let data = [];
+            let tempData = [];
+
+            for (let i =0 ;i<row;i++)
+            {
+                for (let j = 0; j<column;j++){
+                    let datas = prompt(`Enter data for ${i} ${j} `);
+                    tempData.push(datas)
+                }
+                data.push(tempData)
+                tempData=[];
+            }
+
+            console.table(data)
+
+        }
+        tableGenerate()
+    </script>
+</body>
+</html>

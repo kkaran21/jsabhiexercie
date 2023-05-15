@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String1.5</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <h3>Question String 1.5</h3>
+        <p>Arrange a string in Alphabetical order in Ascending/Descending.
+        </p>
+    </div>
+
+    <input id="q5Strings">
+    <button type="button" onclick="myFunctionString5()">Submit</button>
+    <p id="q5StringsOutput"></p>
+
+    <script>
+
+
+        function myFunctionString5(){
+            let x = document.getElementById("q5Strings").value;    
+            let y = document.getElementById("q5StringsOutput");
+            
+            let arr1 = x.split(" ");
+            let arr2 = x.split(" ");
+            
+            let data = arr1.sort();
+            let dataDesc = arr2.reverse();            
+
+            let output= " ";
+            let outputDesc = " ";
+            for (let i = 0; i<data.length; i++){
+                let n = Array.from(data[i]);
+                output= output+ " " +n.sort().toString().replaceAll(",","")
+            }
+            for (let i = 0; i<dataDesc.length; i++){
+                let m = Array.from(dataDesc[i]);
+                outputDesc= outputDesc+ " " +m.sort().reverse().toString().replaceAll(",","")
+            }
+          
+            y.innerHTML = `Sentence in ascending order is <b>${output}</b> <br> Sentence in descending order is <b>${outputDesc}</b>`
+        }
+    </script>
+</body>
+</html>
